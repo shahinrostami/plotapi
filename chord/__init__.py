@@ -1,3 +1,9 @@
+"""Chord - Python wrapper around d3-chord
+
+This package enables the generation of Chord diagrams. They can be saved 
+directly to HTML files or displayed in a Jupyter Notebook output cell.
+"""
+
 from mako.template import Template
 import mako.runtime
 import urllib.request
@@ -33,9 +39,10 @@ class Chord(object):
     def __str__(self):
         return self.html
 
+    """Generates the HTML using the Mako template."""
+
     def render_html(self):
         self.tag_id = "chart-" + str(uuid.uuid4())[:8]
-        print(self.tag_id)
         self.html = Template(Chord.template).render(
             colors=self.colors,
             opacity=self.opacity,
@@ -47,11 +54,15 @@ class Chord(object):
             wrap_labels="true" if self.wrap_labels else "false",
         )
 
+    """Outputs the generated HTML to a HTML file. """
+
     def to_html(self, filename="out.html"):
         self.render_html()
         file = open(filename, "w")
         file.write(self.html)
         file.close()
+
+    """Outputs the generated HTML to a Jupyter Notebook output cell."""
 
     def show(self):
         self.render_html()
