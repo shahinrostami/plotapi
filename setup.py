@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="chord",
-    version="0.0.4",
+    version="0.0.5",
     description="Python wrapper around d3-chord",
     url="https://github.com/shahinrostami/chord",
     author="Dr. Shahin Rostami",
@@ -10,5 +10,5 @@ setup(
     license="MIT",
     packages=["chord"],
     zip_safe=False,
-    install_requires=["mako", "uuid", "urllib"],
+    install_requires=["mako", "uuid"],
 )
