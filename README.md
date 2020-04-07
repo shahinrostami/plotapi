@@ -14,7 +14,6 @@ With Python in mind, there are many libraries available for creating Chord diagr
 
 I couldn't find anything that ticked all the boxes, [so I made](https://pypi.org/project/chord/) a wrapper around d3-chord myself. It took some time to get it working, but I wanted to hide away everything behind a single constructor and method call. The tricky part was enabling multiple chord diagrams on the same page, and then loading resources in a way that would support Jupyter Notebooks.
 
-
 # Installation
 
 Available on https://pypi.org/chord through `pip`:
@@ -73,6 +72,7 @@ Chord(matrix, names, colors=f"d3.schemeGnBu[{len(names)}]").show()
 ```python
 Chord(matrix, names, colors="d3.schemeSet3").show()
 ```
+
 ![Example Image](images/4.png)
 
 ```python
@@ -88,7 +88,7 @@ Chord(matrix, names, colors=f"d3.schemeYlGnBu[{len(names)}]").show()
 ![Example Image](images/6.png)
 
 ```python
-hex_colours = ["#333333", "#4c4c4c", "#666666", "#848484", "#9a9a9a"]
+hex_colours = ["#222222", "#333333", "#4c4c4c", "#666666", "#848484", "#9a9a9a"]
 
 Chord(matrix, names, colors=hex_colours).show()
 ```
@@ -102,6 +102,7 @@ We can disable the wrapped labels, and even change the colour.
 ```python
 Chord(matrix, names, wrap_labels=False, label_color="#4c40bf").show()
 ```
+
 ![Example Image](images/8.png)
 
 ## Opacity
@@ -111,6 +112,7 @@ We can also change the default opacity of the relationships.
 ```python
 Chord(matrix, names, opacity=0.1).show()
 ```
+
 ![Example Image](images/9.png)
 
 <div class="footnote">
