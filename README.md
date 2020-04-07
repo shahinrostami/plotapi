@@ -1,4 +1,4 @@
-![Example Image](images/1.gif)
+![Example Image](images/2.gif)
 
 # Introduction
 
@@ -135,3 +135,5 @@ Chord(matrix, names, opacity=0.1).show()
 - d3-chord, Mike Bostock.
 - d3-chord gradient fills, Nadieh Bremer.
 - `chord` (Python), Shahin Rostami.
+
+![Example Image](images/1.gif)
