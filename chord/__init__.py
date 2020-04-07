@@ -2,6 +2,11 @@
 
 This package enables the generation of Chord diagrams. They can be saved 
 directly to HTML files or displayed in a Jupyter Notebook output cell.
+
+Copyright 2020, Dr. Shahin Rostami
+http://shahinrostami.com
+https://github.com/shahinrostami/chord
+https://pypi.org/project/chord/
 """
 
 from mako.template import Template

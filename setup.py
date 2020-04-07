@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="chord",
-    version="0.0.5",
+    version="0.0.6",
     description="Python wrapper around d3-chord",
     url="https://github.com/shahinrostami/chord",
     author="Dr. Shahin Rostami",
