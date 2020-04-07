@@ -53,6 +53,12 @@ Chord(matrix, names).show()
 
 ![Example Image](images/1.png)
 
+You can also save it to a HTML file.
+
+```python
+Chord(matrix, names).to_html()
+```
+
 ## Different Colours
 
 The defaults are nice, but what if we want different colours? You can pass in almost anything from [d3-scale-chromatic](https://github.com/d3/d3-scale-chromatic#categorical), or you could pass in a list of hexadecimal colour codes.
