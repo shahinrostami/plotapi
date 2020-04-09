@@ -19,6 +19,29 @@ mako.runtime.UNDEFINED = ""
 
 
 class ColorScheme:
+    categorical = (
+        "Category10", "Accent", "Dark2", "Paired",
+        "Pastel1", "Pastel2", "Set1", "Set2", "Set3",
+        "Tableau10"
+    )
+
+    diverging = (
+        "BrBG", "PRGn", "PiYG", "PuOr",
+        "RdBu", "RdGy", "RdYlBu", "RdYlGn",
+        "Spectral"
+    )
+
+    sequential = (
+        "Blues", "Greens", "Greys", "Oranges",
+        "Purples", "Reds"
+    )
+
+    sequential_multi_hue = (
+        "BuGn", "BuPu", "GnBu", "OrRd",
+        "PuBuGn", "PuBu", "PuRd", "RdPu",
+        "YlGnBu", "YlGn", "YlOrBr", "YlOrRd"
+    )
+
     # Categorical
     Category10 = "d3.schemeCategory10"
     Accent = "d3.schemeAccent"
@@ -64,18 +87,35 @@ class ColorScheme:
     YlOrBr = "d3.schemeYlOrBr"
     YlOrRd = "d3.schemeYlOrRd"
 
-    def __init__(self, val):
-        exclude = (
-            "Category10", "Accent", "Dark2", "Paired",
-            "Pastel1", "Pastel2", "Set1", "Set2", "Set3",
-            "Tableau10"
-        )
+    def __init__(self, k):
+        self.k = k if isinstance(k, int) else len(k)
 
-        num = val if isinstance(val, int) else len(val)
+    def __getattribute__(self, item):
+        val = object.__getattribute__(self, item)
+        categorical = object.__getattribute__(self, "categorical")
 
-        for attr, val in self.__dict__.items():
-            if not attr.startswith("__") and attr not in exclude:
-                self.__dict__[attr] = f"{val}[{num}]"
+        if item.startswith("__") or item in categorical:
+            return val
+
+        if isinstance(val, tuple):
+            return val
+
+        k = object.__getattribute__(self, "k")
+
+        if item in object.__getattribute__(self, "diverging"):
+            if 3 <= k <= 11:
+                return f"{val}[{k}]"
+            raise AttributeError(f"{val} requires 3 <= k <= 11 (got {k})")
+
+        if item in object.__getattribute__(self, "sequential"):
+            if 3 <= k <= 9:
+                return f"{val}[{k}]"
+            raise AttributeError(f"{val} requires 3 <= k <= 11 (got {k})")
+
+        if item in object.__getattribute__(self, "sequential_multi_hue"):
+            if 3 <= k <= 9:
+                return f"{val}[{k}]"
+            raise AttributeError(f"{val} requires 3 <= k <= 11 (got {k})")
 
 
 class Chord:
