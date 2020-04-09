@@ -18,7 +18,67 @@ import uuid
 mako.runtime.UNDEFINED = ""
 
 
-class Chord(object):
+class ColorScheme:
+    # Categorical
+    Category10 = "d3.schemeCategory10"
+    Accent = "d3.schemeAccent"
+    Dark2 = "d3.schemeDark2"
+    Paired = "d3.schemePaired"
+    Pastel1 = "d3.schemePastel1"
+    Pastel2 = "d3.schemePastel2"
+    Set1 = "d3.schemeSet1"
+    Set2 = "d3.schemeSet2"
+    Set3 = "d3.schemeSet3"
+    Tableau10 = "d3.schemeTableau10"
+
+    # Diverging
+    BrBG = "d3.schemeBrBG"
+    PRGn = "d3.schemePRGn"
+    PiYG = "d3.schemePiYG"
+    PuOr = "d3.schemePuOr"
+    RdBu = "d3.schemeRdBu"
+    RdGy = "d3.schemeRdGy"
+    RdYlBu = "d3.schemeRdYlBu"
+    RdYlGn = "d3.schemeRdYlGn"
+    Spectral = "d3.schemeSpectral"
+
+    # Sequential
+    Blues = "d3.schemeBlues"
+    Greens = "d3.schemeGreens"
+    Greys = "d3.schemeGreys"
+    Oranges = "d3.schemeOranges"
+    Purples = "d3.schemePurples"
+    Reds = "d3.schemeReds"
+
+    # Sequential Multi-Hue
+    BuGn = "d3.schemeBuGn"
+    BuPu = "d3.schemeBuPu"
+    GnBu = "d3.schemeGnBu"
+    OrRd = "d3.schemeOrRd"
+    PuBuGn = "d3.schemePuBuGn"
+    PuBu = "d3.schemePuBu"
+    PuRd = "d3.schemePuRd"
+    RdPu = "d3.schemeRdPu"
+    YlGnBu = "d3.schemeYlGnBu"
+    YlGn = "d3.schemeYlGn"
+    YlOrBr = "d3.schemeYlOrBr"
+    YlOrRd = "d3.schemeYlOrRd"
+
+    def __init__(self, val):
+        exclude = (
+            "Category10", "Accent", "Dark2", "Paired",
+            "Pastel1", "Pastel2", "Set1", "Set2", "Set3",
+            "Tableau10"
+        )
+
+        num = val if isinstance(val, int) else len(val)
+
+        for attr, val in self.__dict__.items():
+            if not attr.startswith("__") and attr not in exclude:
+                self.__dict__[attr] = f"{val}[{num}]"
+
+
+class Chord:
     template_url = "https://shahinrostami.com/assets/chord/chord.tmpl"
     template = urllib.request.urlopen(template_url).read()
 
@@ -63,9 +123,8 @@ class Chord(object):
 
     def to_html(self, filename="out.html"):
         self.render_html()
-        file = open(filename, "w")
-        file.write(self.html)
-        file.close()
+        with open(filename, "w") as file:
+            file.write(self.html)
 
     """Outputs the generated HTML to a Jupyter Notebook output cell."""
 
