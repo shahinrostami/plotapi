@@ -16,8 +16,6 @@ MIT
 """
 import json
 import requests
-from IPython.display import display, HTML, Image
-from IPython.core.display import Video
 
 session = requests.Session()
 url = "https://plotapi.com"
@@ -130,16 +128,22 @@ class Visualisation:
     ''' Jupyter Lab output'''
     def show(self):
         """Outputs the generated HTML to a Jupyter Lab output cell."""
+        from IPython.display import display, HTML, Image
+        from IPython.core.display import Video
         html = self.get_html()
         display(HTML(html))
         
     def show_png(self):
         """Outputs the generated PNG to a Jupyter Lab output cell."""
+        from IPython.display import display, HTML, Image
+        from IPython.core.display import Video
         image = self.get_png()
         display(Image(image))
         
     def show_mp4(self):
         """Outputs the generated MP4 to a Jupyter Lab output cell."""
+        from IPython.display import display, HTML, Image
+        from IPython.core.display import Video
         video = self.get_mp4()
         display(Video(video, mimetype="video/mp4",
                       html_attributes="autoplay controls", embed=True))
