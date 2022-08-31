@@ -23,6 +23,15 @@ url = "https://plotapi.com"
 ssl_verficiation = True
 path = os.path.dirname(__file__)
 
+try:
+    with open(f"{path}/plotapi_api_key", "r") as api_key_file:
+        env_api_key = api_key_file.read().replace("\n", "")
+
+        if env_api_key != None:
+            session.auth = ("api_key", env_api_key)
+except:
+    pass
+
 
 def content_encoding(raw_params):
     return raw_params, "identity"
@@ -59,16 +68,8 @@ class Visualisation:
         self.params = params
         self.endpoint = endpoint
 
-        try:
-            with open(f"{path}/plotapi_api_key", "r") as api_key_file:
-                env_api_key = api_key_file.read().replace("\n", "")
-
-                if env_api_key != None:
-                    session.auth = ("api_key", env_api_key)
-        except:
-            pass
-
     """PlotAPI Generation"""
+
     def get_html(self):
         """Generates the HTML using the Plotapi service."""
         params, directive = content_encoding(self.params)
@@ -139,6 +140,7 @@ class Visualisation:
         return html
 
     """ File output"""
+
     def to_html(self, filename="out.html"):
         """Outputs the generated HTML to a HTML file."""
         html = self.get_html()
@@ -168,6 +170,7 @@ class Visualisation:
         file.close()
 
     """ Jupyter Lab output"""
+
     def show(self):
         """Outputs the generated HTML to a Jupyter Lab output cell."""
         from IPython.display import display, HTML
