@@ -121,9 +121,9 @@ MIT
 
 ---
 
-## Prefer not to code? Try PlotPanel.com
+## Prefer not to code? Try the App at PlotAPI.com
 
-<a href="https://plotpanel.com"><img src="https://plotpanel.com/static/marketing/plotpanel_preview_1.jpg" alt="PlotPanel"></a>
+<a href="https://plotapi.com"><img src="https://plotapi.com/static-asset/marketing/plotpanel_preview_2.jpg" alt="PlotAPI front-end"></a>
 
 
 > [plotapi.com](https://plotapi.com) &nbsp;&middot;&nbsp;
