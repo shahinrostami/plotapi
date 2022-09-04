@@ -139,7 +139,39 @@ class Visualisation:
         html = self.get_html()
         return html
 
-    """ File output"""
+    """Upload and share"""
+
+    def upload(
+        self,
+        name="My First Upload",
+        public=False,
+        description="Uploaded from the API",
+        custom_css="",
+        wide=False,
+    ):
+        """Upload visualization to PlotAPI.com."""
+        self.params["plotapi_name"] = name
+        self.params["plotapi_public"] = public
+        self.params["plotapi_description"] = description
+        self.params["plotapi_custom_css"] = custom_css
+        self.params["plotapi_wide"] = wide
+
+        params, directive = content_encoding(self.params)
+        result = session.post(
+            f"{url}/upload/{self.endpoint}",
+            json=params,
+            headers={"Content-Encoding": directive},
+            verify=ssl_verficiation,
+        )
+
+        detail = json.loads(result.content.decode("utf8"))
+
+        if result.status_code == 200:
+            return detail
+        else:
+            raise Exception(detail)
+
+    """File output"""
 
     def to_html(self, filename="out.html"):
         """Outputs the generated HTML to a HTML file."""
