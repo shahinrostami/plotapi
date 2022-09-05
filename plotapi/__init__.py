@@ -147,14 +147,16 @@ class Visualisation:
         public=False,
         description="Uploaded from the API",
         custom_css="",
-        wide=False,
+        maximized=False,
+        full_width=False,
     ):
         """Upload visualization to PlotAPI.com."""
         self.params["plotapi_name"] = name
         self.params["plotapi_public"] = public
         self.params["plotapi_description"] = description
         self.params["plotapi_custom_css"] = custom_css
-        self.params["plotapi_wide"] = wide
+        self.params["plotapi_maximized"] = maximized
+        self.params["plotapi_full_width"] = full_width
 
         params, directive = content_encoding(self.params)
         result = session.post(
