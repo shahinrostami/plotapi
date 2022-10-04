@@ -46,7 +46,7 @@ def api_key(key):
             print(key, file=api_key_file)
 
         print(
-            "Your Plotapi API key has been saved in your local environment. You will not need to set it again."
+            "Your PlotAPI API key has been saved in your local environment. You will not need to set it again."
         )
     except:
         pass
