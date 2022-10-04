@@ -1,13 +1,13 @@
 """
-Plotapi - Engaging visualisations, made easy.
+PlotAPI - Engaging visualisations, made easy.
 
 This package enables the generation of beautiful visualisations. 
 They can be saved directly to HTML, PNG, PDF, and MP4 files.
 They can also be displayed in a Jupyter Notebook output cell.
 
 Copyright 2021-2022, Dr. Shahin Rostami
-http://shahinrostami.com
-http://plotapi.com
+https://shahinrostami.com
+https://plotapi.com
 https://github.com/shahinrostami/plotapi
 https://pypi.org/project/plotapi/
 """
