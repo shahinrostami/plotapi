@@ -7,7 +7,7 @@
 <h4 align="center">Engaging visualisations, made easy.</h4>
 
 <p align="center">
-<a href="https://pypi.org/project/plotapi/"><img src="https://img.shields.io/badge/pypi%20package-6.1.2-success.svg"></a>
+<a href="https://pypi.org/project/plotapi/"><img src="https://img.shields.io/badge/pypi%20package-6.2.0-success.svg"></a>
 <a href="https://crates.io/crates/chord"><img src="https://img.shields.io/badge/rust%20crate-0.1.0-success.svg"></a>
 <a href="https://plotapi.com/pricing/"><img src="https://img.shields.io/badge/license-get-green.svg"></a>
 <a href="https://discord.polyra.com"><img src="https://img.shields.io/badge/chat-join-7289da.svg"></a>
@@ -17,10 +17,10 @@
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
-  <a href="https://plotapi.com/pricing/">Get Access</a> •
+  <a href="https://plotapi.com/#pricing">Get Access</a> •
   <a href="#installation">Installation</a> •
   <a href="#usage">Usage</a> •
-  <a href="#license">License</a>
+  <a href="https://plotapi.com/docs">Docs</a>
 </p>
 
 ![screenshot](https://plotapi.com/wp-content/uploads/2021/08/1500x500.jpeg)
@@ -28,6 +28,7 @@
 ## Key Features
 
 * **PlotAPI Chord** - Illustrate inter-relationships between data.
+* **PlotAPI SplitChord** - Illustrate inter-relationships between bipartite data.
 * **PlotAPI Sankey** - Illustrate the flow from one set of values to another.
 * **PlotAPI Terminus** - Illustrate distributing something out amongst recipients.
 * **PlotAPI Bar Fight** - A beautiful take on the classic Bar Chart Race.
