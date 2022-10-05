@@ -301,9 +301,9 @@ class ParetoFront(Visualisation):
 
 
 class SplitChord(Visualisation):
-    def __init__(self, matrix, names, **kwargs):
+    def __init__(self, links, nodes, **kwargs):
         params = kwargs
-        params["matrix"] = matrix
-        params["names"] = names
+        params["links"] = links
+        params["nodes"] = nodes
         endpoint = "splitchord"
         super().__init__(params, endpoint)
