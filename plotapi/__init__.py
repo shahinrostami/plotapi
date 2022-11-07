@@ -301,7 +301,7 @@ class ParetoFront(Visualisation):
 
 
 class SplitChord(Visualisation):
-    def __init__(self, links, nodes, **kwargs):
+    def __init__(self, links=None, nodes=None, **kwargs):
         params = kwargs
         params["links"] = links
         params["nodes"] = nodes
