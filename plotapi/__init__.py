@@ -5,7 +5,7 @@ This package enables the generation of beautiful visualisations.
 They can be saved directly to HTML, PNG, PDF, and MP4 files.
 They can also be displayed in a Jupyter Notebook output cell.
 
-Copyright 2021-2022, Dr. Shahin Rostami
+Copyright 2021-2023, Dr. Shahin Rostami
 https://shahinrostami.com
 https://plotapi.com
 https://github.com/shahinrostami/plotapi
@@ -16,11 +16,12 @@ MIT
 """
 import json
 import os
+
 import requests
 
 session = requests.Session()
 url = "https://plotapi.com"
-ssl_verficiation = True
+ssl_verification = True
 path = os.path.dirname(__file__)
 
 try:
@@ -57,8 +58,8 @@ class Visualisation:
         api_key(key)
 
     def verify_ssl(truth):
-        global ssl_verficiation
-        ssl_verficiation = truth
+        global ssl_verification
+        ssl_verification = truth
 
     def set_license(username, password):
         global session
@@ -77,7 +78,7 @@ class Visualisation:
             f"{url}/{self.endpoint}/",
             json=params,
             headers={"Content-Encoding": directive},
-            verify=ssl_verficiation,
+            verify=ssl_verification,
         )
 
         if result.status_code == 200:
@@ -93,7 +94,7 @@ class Visualisation:
             f"{url}/{self.endpoint}/png",
             json=params,
             headers={"Content-Encoding": directive},
-            verify=ssl_verficiation,
+            verify=ssl_verification,
         )
 
         if result.status_code == 200:
@@ -109,7 +110,7 @@ class Visualisation:
             f"{url}/{self.endpoint}/pdf",
             json=params,
             headers={"Content-Encoding": directive},
-            verify=ssl_verficiation,
+            verify=ssl_verification,
         )
 
         if result.status_code == 200:
@@ -125,7 +126,7 @@ class Visualisation:
             f"{url}/{self.endpoint}/mp4",
             json=params,
             headers={"Content-Encoding": directive},
-            verify=ssl_verficiation,
+            verify=ssl_verification,
         )
 
         if result.status_code == 200:
@@ -134,7 +135,7 @@ class Visualisation:
             detail = json.loads(result.content.decode("utf8"))
             raise Exception(detail)
 
-    def to_string(self, filename="out.html"):
+    def to_string(self):
         """Outputs the generated HTML to as a string."""
         html = self.get_html()
         return html
@@ -163,7 +164,7 @@ class Visualisation:
             f"{url}/upload/{self.endpoint}",
             json=params,
             headers={"Content-Encoding": directive},
-            verify=ssl_verficiation,
+            verify=ssl_verification,
         )
 
         detail = json.loads(result.content.decode("utf8"))
@@ -207,22 +208,22 @@ class Visualisation:
 
     def show(self):
         """Outputs the generated HTML to a Jupyter Lab output cell."""
-        from IPython.display import display, HTML
+        from IPython.display import HTML, display
 
         html = self.get_html()
         display(HTML(html))
 
     def show_png(self):
         """Outputs the generated PNG to a Jupyter Lab output cell."""
-        from IPython.display import display, Image
+        from IPython.display import Image, display
 
         image = self.get_png()
         display(Image(image))
 
     def show_mp4(self):
         """Outputs the generated MP4 to a Jupyter Lab output cell."""
-        from IPython.display import display
         from IPython.core.display import Video
+        from IPython.display import display
 
         video = self.get_mp4()
         display(

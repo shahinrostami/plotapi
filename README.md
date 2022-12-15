@@ -7,7 +7,7 @@
 <h4 align="center">Engaging visualisations, made easy.</h4>
 
 <p align="center">
-<a href="https://pypi.org/project/plotapi/"><img src="https://img.shields.io/badge/pypi%20package-6.2.1-success.svg"></a>
+<a href="https://pypi.org/project/plotapi/"><img src="https://img.shields.io/badge/pypi%20package-6.2.2-success.svg"></a>
 <a href="https://crates.io/crates/chord"><img src="https://img.shields.io/badge/rust%20crate-0.1.0-success.svg"></a>
 <a href="https://plotapi.com/pricing/"><img src="https://img.shields.io/badge/license-get-green.svg"></a>
 <a href="https://discord.polyra.com"><img src="https://img.shields.io/badge/chat-join-7289da.svg"></a>
