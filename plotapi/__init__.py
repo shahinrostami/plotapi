@@ -69,6 +69,10 @@ class Visualisation:
         self.params = params
         self.endpoint = endpoint
 
+    def _ipython_display_(self):
+        """Display the visualisation (as a side effect) within a notebook"""
+        self.show()
+
     """PlotAPI Generation"""
 
     def get_html(self):
@@ -204,7 +208,7 @@ class Visualisation:
         file.write(pdf)
         file.close()
 
-    """ Jupyter Lab output"""
+    """Jupyter Lab output"""
 
     def show(self):
         """Outputs the generated HTML to a Jupyter Lab output cell."""
