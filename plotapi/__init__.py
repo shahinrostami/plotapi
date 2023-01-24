@@ -91,12 +91,13 @@ class Visualisation:
             detail = json.loads(result.content.decode("utf8"))
             raise Exception(detail)
 
-    def get_png(self):
+    def get_png(self, query_params=None):
         """Generates the PNG using the Plotapi service."""
         params, directive = content_encoding(self.params)
         result = session.post(
             f"{url}/{self.endpoint}/png",
             json=params,
+            params=query_params,
             headers={"Content-Encoding": directive},
             verify=ssl_verification,
         )
@@ -107,7 +108,7 @@ class Visualisation:
             detail = json.loads(result.content.decode("utf8"))
             raise Exception(detail)
 
-    def get_pdf(self):
+    def get_pdf(self, query_params=None):
         """Generates the PDF using the Plotapi service."""
         params, directive = content_encoding(self.params)
         result = session.post(
@@ -123,7 +124,7 @@ class Visualisation:
             detail = json.loads(result.content.decode("utf8"))
             raise Exception(detail)
 
-    def get_mp4(self):
+    def get_mp4(self, query_params=None):
         """Generates the MP4 using the Plotapi service."""
         params, directive = content_encoding(self.params)
         result = session.post(
@@ -187,23 +188,23 @@ class Visualisation:
         file.write(html)
         file.close()
 
-    def to_png(self, filename="out.png"):
+    def to_png(self, filename="out.png", **kwargs):
         """Outputs the generated PNG to a file."""
-        image = self.get_png()
+        image = self.get_png(kwargs)
         file = open(filename, "wb")
         file.write(image)
         file.close()
 
-    def to_pdf(self, filename="out.pdf"):
+    def to_pdf(self, filename="out.pdf", **kwargs):
         """Outputs the generated PDF to a file."""
-        pdf = self.get_pdf()
+        pdf = self.get_pdf(kwargs)
         file = open(filename, "wb")
         file.write(pdf)
         file.close()
 
-    def to_mp4(self, filename="out.mp4"):
+    def to_mp4(self, filename="out.mp4", **kwargs):
         """Outputs the generated MP4 to a file."""
-        pdf = self.get_mp4()
+        pdf = self.get_mp4(kwargs)
         file = open(filename, "wb")
         file.write(pdf)
         file.close()
@@ -217,19 +218,19 @@ class Visualisation:
         html = self.get_html()
         display(HTML(html))
 
-    def show_png(self):
+    def show_png(self, **kwargs):
         """Outputs the generated PNG to a Jupyter Lab output cell."""
         from IPython.display import Image, display
 
-        image = self.get_png()
+        image = self.get_png(kwargs)
         display(Image(image))
 
-    def show_mp4(self):
+    def show_mp4(self, **kwargs):
         """Outputs the generated MP4 to a Jupyter Lab output cell."""
         from IPython.core.display import Video
         from IPython.display import display
 
-        video = self.get_mp4()
+        video = self.get_mp4(kwargs)
         display(
             Video(
                 video,

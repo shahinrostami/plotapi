@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="plotapi",
-    version="6.2.3",
+    version="6.3.1",
     description="Engaging visualisations, made easy.",
     long_description=long_description,
     long_description_content_type="text/markdown",
