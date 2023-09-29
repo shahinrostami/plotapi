@@ -11,7 +11,7 @@
 <a href="https://crates.io/crates/plotapi"><img src="https://img.shields.io/badge/rust%20crate-1.0.0-success.svg"></a>
 <a href="https://plotapi.com/pricing/"><img src="https://img.shields.io/badge/license-get-green.svg"></a>
 <a href="https://discord.polyra.com"><img src="https://img.shields.io/badge/chat-join-7289da.svg"></a>
-<a href="https://jupyter.org"><img src="https://img.shields.io/badge/supports-jupyter-orange.svg"></a>
+<a href="https://plotapi.com/docs/api-for-coders/displaying-in-notebook/"><img src="https://img.shields.io/badge/supports-jupyter-orange.svg"></a>
 <a href="https://www.linkedin.com/in/shahinrostami/"><img src="https://img.shields.io/badge/linked-in-blue.svg"></a>
 </p>
 
