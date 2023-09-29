@@ -3,9 +3,9 @@ PlotAPI - Engaging visualisations, made easy.
 
 This package enables the generation of beautiful visualisations. 
 They can be saved directly to HTML, PNG, PDF, and MP4 files.
-They can also be displayed in a Jupyter Notebook output cell.
+Supports Jupyter Notebooks, and uploading to PlotAPI.com.
 
-Copyright 2021-2023, Dr. Shahin Rostami
+Copyright 2021-2024, Dr. Shahin Rostami
 https://shahinrostami.com
 https://plotapi.com
 https://github.com/shahinrostami/plotapi
@@ -312,4 +312,12 @@ class SplitChord(Visualisation):
         params["links"] = links
         params["nodes"] = nodes
         endpoint = "splitchord"
+        super().__init__(params, endpoint)
+
+
+class GoalRush(Visualisation):
+    def __init__(self, progress=None, **kwargs):
+        params = kwargs
+        params["progress"] = progress
+        endpoint = "goalrush"
         super().__init__(params, endpoint)
