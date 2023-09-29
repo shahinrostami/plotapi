@@ -7,7 +7,7 @@
 <h4 align="center">Engaging visualisations, made easy.</h4>
 
 <p align="center">
-<a href="https://pypi.org/project/plotapi/"><img src="https://img.shields.io/badge/pypi%20package-6.3.1-success.svg"></a>
+<a href="https://pypi.org/project/plotapi/"><img src="https://img.shields.io/badge/pypi%20package-7.0.0-success.svg"></a>
 <a href="https://crates.io/crates/chord"><img src="https://img.shields.io/badge/rust%20crate-0.1.0-success.svg"></a>
 <a href="https://plotapi.com/pricing/"><img src="https://img.shields.io/badge/license-get-green.svg"></a>
 <a href="https://discord.polyra.com"><img src="https://img.shields.io/badge/chat-join-7289da.svg"></a>
@@ -36,6 +36,7 @@
 * **PlotAPI Heat Map** - Beautiful and interactive heat maps.
 * **PlotAPI Line Fight** - A beautiful take on the classic Line Chart Race.
 * **PlotAPI Pareto Front** - Illustrate non-dominated (Pareto) fronts over time.
+* **PlotAPI Goal rush** - Illustrate progress toward a goal over time.
 * **Upcoming Visualisations** - Access to new visualisations as they are introduced.
 * **Supports Most Programming Languages** - Get started with any language able to make HTTP requests.
 * **First-Class Python Support** - Get started with pip install plotapi
