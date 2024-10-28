@@ -140,6 +140,22 @@ class Visualisation:
             detail = json.loads(result.content.decode("utf8"))
             raise Exception(detail)
 
+    def get_svg(self, query_params=None):
+        """Generates the SVG using the Plotapi service."""
+        params, directive = content_encoding(self.params)
+        result = session.post(
+            f"{url}/{self.endpoint}/svg",
+            json=params,
+            headers={"Content-Encoding": directive},
+            verify=ssl_verification,
+        )
+
+        if result.status_code == 200:
+            return result.content
+        else:
+            detail = json.loads(result.content.decode("utf8"))
+            raise Exception(detail)
+            
     def to_string(self):
         """Outputs the generated HTML to as a string."""
         html = self.get_html()
@@ -207,6 +223,13 @@ class Visualisation:
         pdf = self.get_mp4(kwargs)
         file = open(filename, "wb")
         file.write(pdf)
+        file.close()
+    
+    def to_svg(self, filename="out.svg", **kwargs):
+        """Outputs the generated SVG to a file."""
+        svg = self.get_svg(kwargs)
+        file = open(filename, "wb")
+        file.write(svg)
         file.close()
 
     """Jupyter Lab output"""
