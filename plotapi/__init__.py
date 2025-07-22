@@ -5,7 +5,7 @@ This package enables the generation of beautiful visualisations.
 They can be saved directly to HTML, PNG, PDF, and MP4 files.
 Supports Jupyter Notebooks, and uploading to PlotAPI.com.
 
-Copyright 2021-2024, Dr. Shahin Rostami
+Copyright 2021-2025, Dr. Shahin Rostami
 https://shahinrostami.com
 https://plotapi.com
 https://github.com/shahinrostami/plotapi
